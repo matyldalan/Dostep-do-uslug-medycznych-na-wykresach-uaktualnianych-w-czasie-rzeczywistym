@@ -1,41 +1,39 @@
 body {
-    background-color: beige;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    width: 80%;
-    margin-top: 20px;
+  font-family: Arial, sans-serif;
+  background-color: beige;
 }
 
 .header {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.chart-info-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.chart-container, .info-container {
-    width: 48%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: white;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 .dropdown {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+}
+
+.data-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.charts, .text {
+  border: 1px solid gray;
+  width: 48%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.charts {
+  background-color: #f0f0f0;
+}
+
+.text {
+  background-color: #fff;
 }
