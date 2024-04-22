@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Realtime Medical Dashboard</title>
 </head>
 <body>
-    <h1>Realtime Medical Dashboard</h1>
+    <div class="container">
+        <h1 class="header">Realtime Medical Dashboard</h1>
+        <select class="dropdown">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+        </select>
+        <div class="chart-info-container">
+            <div class="chart-container">
+                <!-- Miejsce na wykresy -->
+                <p>Wykresy będą tutaj.</p>
+            </div>
+            <div class="info-container">
+                <!-- Miejsce na informacje -->
+                <p>Informacje będą tutaj.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
