@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import pandas as pd
+import logging
+
+logger = logging.getLogger('django')
 
 def home(request):
     return render(request, 'dashboard/home.html')
@@ -19,16 +22,13 @@ def load_csv_data(request):
             'letters': letters,
             'selected_letter': selected_letter
         }
-        print("Selected letter:", selected_letter)
-        print("Filtered Data:", filtered_data)
     else:
         context = {
             'data': '',
             'letters': letters,
             'selected_letter': None
         }
-        print("No letter selected. Context:", context)
 
-    print("Context being sent to template:", context)
+    logger.debug('Udalo sie')
     return render(request, 'home.html', context)
 
