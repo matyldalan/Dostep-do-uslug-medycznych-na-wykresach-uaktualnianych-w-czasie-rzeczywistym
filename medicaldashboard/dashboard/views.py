@@ -18,7 +18,7 @@ def load_csv_data(request):
             'letters': list(data['Letter'].unique()),
             'selected_letter': selected_letter
         }
-        return render(request, 'your_template_name.html', context)
+        return render(request, 'home.html', context)
     else:
         file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'
         data = pd.read_csv(file_path)
@@ -27,4 +27,4 @@ def load_csv_data(request):
             'letters': list(data['Letter'].unique()),
             'selected_letter': None
         }
-        return render(request, 'your_template_name.html', context)
+        return render(request, 'home.html', context)
