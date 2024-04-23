@@ -4,11 +4,12 @@ import pandas as pd
 
 def home(request):
     return render(request, 'dashboard/home.html')
+#/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv
 
 def load_csv_data(request):
-    file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'  # Zmień na odpowiednią ścieżkę
+    file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'
     data = pd.read_csv(file_path)
-    letters = list(data['Letter'].unique())
+    letters = list(data['Letter'].unique())  # Lista unikalnych liter
 
     if request.method == 'POST':
         selected_letter = request.POST.get('letter_choice')
@@ -22,6 +23,8 @@ def load_csv_data(request):
         context = {
             'data': '',
             'letters': letters,
-            'selected_letter': 'A'
+            'selected_letter': None
+        }
+    return render(request, 'home.html', context)
         }
     return render(request, 'home.html', context)
