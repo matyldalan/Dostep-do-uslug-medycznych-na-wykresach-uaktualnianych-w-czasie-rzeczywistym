@@ -9,8 +9,7 @@ def home(request):
 def load_csv_data(request):
     file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'
     data = pd.read_csv(file_path)
-    letters = list(data['Letter'].unique())  # Lista unikalnych liter
-
+    letters = list(data['Letter'].unique())
     if request.method == 'POST':
         selected_letter = request.POST.get('letter_choice')
         filtered_data = data[data['Letter'] == selected_letter]
@@ -23,8 +22,6 @@ def load_csv_data(request):
         context = {
             'data': '',
             'letters': letters,
-            'selected_letter': None
-        }
-    return render(request, 'home.html', context)
+            'selected_letter': ''
         }
     return render(request, 'home.html', context)
