@@ -15,9 +15,11 @@
   <form method="post" action="">
     {% csrf_token %}
     <select name="letter_choice" class="dropdown">
-        {% for letter in letters %}
-        <option value="{{ letter }}" {% if letter == selected_letter %}selected{% endif %}>{{ letter }}</option>
-        {% endfor %}
+      <option value="A" {% if selected_letter == 'A' %}selected{% endif %}>A</option>
+      <option value="B" {% if selected_letter == 'B' %}selected{% endif %}>B</option>
+      <option value="C" {% if selected_letter == 'C' %}selected{% endif %}>C</option>
+      <option value="D" {% if selected_letter == 'D' %}selected{% endif %}>D</option>
+      <option value="E" {% if selected_letter == 'E' %}selected{% endif %}>E</option>
     </select>
     <button type="submit" class="btn">Pokaż dane</button>
   </form>
