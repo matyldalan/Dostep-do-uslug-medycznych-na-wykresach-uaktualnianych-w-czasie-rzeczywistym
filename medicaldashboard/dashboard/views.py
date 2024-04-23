@@ -6,10 +6,15 @@ def home(request):
     return render(request, 'dashboard/home.html')
 #/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv
 
+import pandas as pd
+from django.shortcuts import render
+
 def load_csv_data(request):
     file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'
     data = pd.read_csv(file_path)
     letters = list(data['Letter'].unique())
+    print(data)
+
     if request.method == 'POST':
         selected_letter = request.POST.get('letter_choice')
         filtered_data = data[data['Letter'] == selected_letter]
@@ -22,6 +27,7 @@ def load_csv_data(request):
         context = {
             'data': '',
             'letters': letters,
-            'selected_letter': ''
+            'selected_letter': None
         }
     return render(request, 'home.html', context)
+
