@@ -10,7 +10,6 @@ def load_csv_data(request):
     file_path = '/home/RealtimeMedicalDashboard/Dostep-do-uslug-medycznych-na-wykresach-uaktualnianych-w-czasie-rzeczywistym/medicaldashboard/data/data.csv'
     data = pd.read_csv(file_path)
     letters = list(data['Letter'].unique())
-    print(data)
 
     if request.method == 'POST':
         selected_letter = request.POST.get('letter_choice')
@@ -20,11 +19,16 @@ def load_csv_data(request):
             'letters': letters,
             'selected_letter': selected_letter
         }
+        print("Selected letter:", selected_letter)
+        print("Filtered Data:", filtered_data)
     else:
         context = {
             'data': '',
             'letters': letters,
             'selected_letter': None
         }
+        print("No letter selected. Context:", context)
+
+    print("Context being sent to template:", context)
     return render(request, 'home.html', context)
 
