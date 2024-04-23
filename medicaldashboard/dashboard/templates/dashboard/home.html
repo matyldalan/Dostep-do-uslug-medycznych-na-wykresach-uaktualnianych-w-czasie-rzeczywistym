@@ -12,44 +12,19 @@
   <h1>Realtime Medical Dashboard</h1>
 </div>
 <div class="content">
-  <form action="{% url 'filter-data' %}" method="get">
-    <select name="letter" class="dropdown" onchange="this.form.submit()">
-      <option value="">Wybierz literę</option>
-      <option value="A">A</option>
-      <option value="B">B</option>
-      <option value="C">C</option>
-      <option value="D">D</option>
-      <option value="E">E</option>
-    </select>
-  </form>
-  
+  <select class="dropdown">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+  </select>
   <div class="data-container">
     <div class="charts">
       <p>Tutaj będą wyświetlane wykresy...</p>
     </div>
     <div class="text">
-      {% if data %}
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Value</th>
-            <th>Color</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for row in data %}
-          <tr>
-            <td>{{ row.ID }}</td>
-            <td>{{ row.Value }}</td>
-            <td>{{ row.Color }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      {% else %}
-      <p>Wybierz literę, aby wyświetlić dane.</p>
-      {% endif %}
+      <p>Tutaj będzie wyświetlany tekst...</p>
     </div>
   </div>
 </div>
