@@ -1,5 +1,4 @@
-import pandas as pd
+from django.shortcuts import render
 
-def load_csv_data(request):
-    file_path = 'data/data.csv'
-    data = pd.read_csv(file_path)
+def home(request):
+    return render(request, 'dashboard/home.html')
