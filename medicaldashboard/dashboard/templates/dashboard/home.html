@@ -12,19 +12,23 @@
   <h1>Realtime Medical Dashboard</h1>
 </div>
 <div class="content">
-  <select class="dropdown">
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="C">C</option>
-    <option value="D">D</option>
-    <option value="E">E</option>
-  </select>
+  <form method="post" action="{% url 'load_csv_data' %}">
+    {% csrf_token %}
+    <select name="letter_choice" class="dropdown">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+    </select>
+    <button type="submit" class="btn">Pokaż dane</button>
+  </form>
   <div class="data-container">
     <div class="charts">
       <p>Tutaj będą wyświetlane wykresy...</p>
     </div>
     <div class="text">
-      <p>Tutaj będzie wyświetlany tekst...</p>
+      {{ csv_data|safe }}
     </div>
   </div>
 </div>
