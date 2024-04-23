@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import home, load_csv_data
+from .views import home
 
 urlpatterns = [
     path('', home, name='home'),
-    path('load-csv/', load_csv_data, name='load_csv_data'),
 ]
