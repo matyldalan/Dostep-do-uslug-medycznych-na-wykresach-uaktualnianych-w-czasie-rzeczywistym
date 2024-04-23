@@ -13,12 +13,19 @@
     </div>
     <div class="content">
         <form method="post" action="">
-            {% csrf_token %}
-            <select name="letter_choice" class="dropdown">
+            {% if letters %}
+              <select name="letter_choice" class="dropdown">
                 {% for letter in letters %}
-                <option value="{{ letter }}" {% if letter == selected_letter %}selected{% endif %}>{{ letter }}</option>
+                  <option value="{{ letter }}" {% if letter == selected_letter %}selected{% endif %}>{{ letter }}</option>
                 {% endfor %}
-            </select>
+              </select>
+            {% endif %}
+
+            {% if data %}
+              <div>{{ data|safe }}</div>
+            {% else %}
+              <div>No data available</div>
+            {% endif %}
             <button type="submit" class="btn">Pokaż dane</button>
         </form>
         <div class="data-container">
