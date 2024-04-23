@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-20y_yirorffvm+vxxelh-oeqc-6kl4)pf@8=p3&x6bc3mn9v45'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['RealtimeMedicalDashboard.pythonanywhere.com']
 
