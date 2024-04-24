@@ -30,7 +30,7 @@
                 {% if entries %}
                     <ul>
                         {% for entry in entries %}
-                            <li>ID: {{ entry.id }}, Wartość: {{ entry.value }}, Kolor: {{ entry.color }}</li>
+                            <li>ID: {{ entry.pk }}, Wartość: {{ entry.fields.value }}, Kolor: {{ entry.fields.color }}</li>
                         {% endfor %}
                     </ul>
                 {% else %}
