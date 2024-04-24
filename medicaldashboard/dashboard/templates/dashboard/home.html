@@ -3,30 +3,40 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<title>Realtime Medical Dashboard</title>
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Realtime Medical Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div class="header">
-  <h1>Realtime Medical Dashboard</h1>
-</div>
-<div class="content">
-  <select class="dropdown">
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="C">C</option>
-    <option value="D">D</option>
-    <option value="E">E</option>
-  </select>
-  <div class="data-container">
-    <div class="charts">
-      <p>Tutaj będą wyświetlane wykresy...</p>
+    <div class="header">
+        <h1>Realtime Medical Dashboard</h1>
     </div>
-    <div class="text">
-      <p>Tutaj będzie wyświetlany tekst...</p>
+    <div class="content">
+        <form method="get" action="">
+            <select name="letter" class="dropdown">
+                <option value="">Wybierz literę</option>
+                {% for letter in letters %}
+                <option value="{{ letter }}" {% if letter == selected_letter %}selected{% endif %}>{{ letter }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Pokaż dane</button>
+        </form>
+        <div class="data-container">
+            <div class="charts">
+                <p>Tutaj będą wyświetlane wykresy...</p>
+            </div>
+            <div class="text">
+                {% if entries %}
+                    <ul>
+                        {% for entry in entries %}
+                            <li>{{ entry.value }} - {{ entry.color }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No data available.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </body>
-</html> 
+</html>
