@@ -6,7 +6,7 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "medicaldashboard.settings")
 django.setup()
 
-from app_name.models import DataEntry
+from dashboard.models import DataEntry
 
 def import_csv(file_path):
     with open(file_path, newline='', encoding='utf-8') as csvfile:
