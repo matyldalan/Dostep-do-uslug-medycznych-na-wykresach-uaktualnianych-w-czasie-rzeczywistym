@@ -13,6 +13,7 @@ def import_csv(file_path):
         reader = csv.DictReader(csvfile)
         for row in reader:
             DataEntry.objects.create(
+                id=int(row['ID']),
                 value=int(row['Value']),
                 color=row['Color'],
                 letter=row['Letter']
